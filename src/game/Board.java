@@ -1,8 +1,9 @@
 package game;
 
-public class Board extends SuperBoard{
+public class Board {
 
 	private static int[][] InitialBoard = new int[8][8];
+	private InterruptInput SaveUndo= new InterruptInput();
 
 	public Board() {
 
@@ -75,6 +76,27 @@ public class Board extends SuperBoard{
 
 		return InitialBoard[row][column];
 	}
+	
+	
+	public void setundoredo(int current){
+		
+		
+		String undoredo ="";
+		
+		for(int row=0;row<8 ;row++){
+			for(int column=0; column<8; column++){
+				
+				
+				undoredo+= row+","+column+","+getPieceCell(row,column)+",";
+				
+			}
+		}
+	
+		undoredo=undoredo+current;
+//	System.out.println(undoredo);
+		SaveUndo.savetoUndolist(undoredo);	
+		
+	}
 
 	public void setPieceCell(int row, int column, int piece) {
 		InitialBoard[row][column] = piece;
@@ -115,5 +137,11 @@ public class Board extends SuperBoard{
 		}
 
 	}
+	
+	
+	
+	
+	
+	
 
 }

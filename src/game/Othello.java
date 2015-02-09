@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Othello {
 
-	public static Controller Controller = new Controller();
+	public static objController Controller = new objController();
 
 	public static void main(String[] args) {
 
